@@ -1,0 +1,9 @@
+<section class="w-3/4 mx-auto mt-4 p-1 shadow-lg shadow-gray-300">
+  <div class="mx-auto w-52 text-3xl font-serif font-extrabold">
+    All <span class="text-blue-500">Products</span> 
+  </div>
+  <app-productcard
+    *ngFor="let product of products"
+    [product]="product"
+  ></app-productcard>
+</section>

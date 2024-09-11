@@ -1,0 +1,32 @@
+<div
+  class="w-[80%] mx-auto bg-slate-200 m-2 rounded-xl flex justify-around items-center p-2"
+>
+  <div class="p-2">
+    <img
+      src="https://fuaark.com/cdn/shop/files/FuaarkChecksStringerUltimateGrey_1.jpg?v=1716526924&width=580"
+      width="130"
+      class="h-28 rounded-lg border border-black"
+      alt="{{ product.productHeading }}"
+    />
+    <button class="px-2 py-1 ml-4 mt-6 bg-blue-400 rounded-lg text-sm">
+      Edit Picture <i class="ri-image-edit-line"></i>
+    </button>
+  </div>
+  <div class="w-[30%] p-2">
+    <h2 class="text-xl font-bold">{{ product.productHeading }}</h2>
+    <p class="mt-1 font-serif font-semibold">
+      {{ product.productDescription }}
+    </p>
+    <div class="mt-4">Product Price : {{ product.productPrice }}</div>
+    <div>Strike Price : {{ product.productStrike }}</div>
+    <div>Offer Applied : {{ product.productOffer }}</div>
+    <button class="px-3 py-1 mr-2 bg-blue-400 text-sm mt-4">
+      Edit <i class="ri-pencil-fill"></i>
+    </button>
+    <button
+      class="px-3 py-1 m-2 bg-red-600 text-white text-sm mt-4 hover:bg-white hover:text-red-500 rounded-lg"
+    >
+      Delete <i class="ri-delete-bin-line"></i>
+    </button>
+  </div>
+</div>

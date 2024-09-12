@@ -6,20 +6,20 @@
       src="https://fuaark.com/cdn/shop/files/FuaarkChecksStringerUltimateGrey_1.jpg?v=1716526924&width=580"
       width="130"
       class="h-28 rounded-lg border border-black"
-      alt="{{ product.productHeading }}"
+      alt="{{ product.productHeading  }}"
     />
     <button class="px-2 py-1 ml-4 mt-6 bg-blue-400 rounded-lg text-sm">
       Edit Picture <i class="ri-image-edit-line"></i>
     </button>
   </div>
   <div class="w-[30%] p-2">
-    <h2 class="text-xl font-bold">{{ product.productHeading }}</h2>
+    <h2 class="text-xl font-bold">{{ product.productHeading | titlecase }}</h2>
     <p class="mt-1 font-serif font-semibold">
-      {{ product.productDescription }}
+      {{ product.productDescription | lowercase}}
     </p>
     <div class="mt-4">Product Price : {{ product.productPrice }}</div>
-    <div>Strike Price : {{ product.productStrike }}</div>
-    <div>Offer Applied : {{ product.productOffer }}</div>
+    <div>Strike Price : {{ product.productStrike }} </div>
+    <div>Offer Applied : {{ product.productOffer  }}</div>
     <button class="px-3 py-1 mr-2 bg-blue-400 text-sm mt-4">
       Edit <i class="ri-pencil-fill"></i>
     </button>

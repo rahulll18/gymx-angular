@@ -6,6 +6,5 @@ export class Product {
     public productPrice: string = '',
     public productStrike: string = '',
     public productOffer: string = '' ,
-    public productImage: string = ''
   ) {}
 }

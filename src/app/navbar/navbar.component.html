@@ -1,11 +1,29 @@
 <nav class="flex justify-between items-center p-3 shadow-lg shadow-blue-200">
-    <div class="font-bold ml-4"> Gymx Admin <i class="ri-admin-line font-bold"></i> </div>
-    <div class="flex justify-between items-center">
-        <ul class="flex space-x-11">
-            <li><i class="ri-store-line mr-1"></i> All Product</li>
-            <li><i class="ri-add-line mr-1"></i> Add/Edit Product</li>
-            <li><i class="ri-group-line mr-1"></i> Users</li>
-        </ul>
-        <button class="mx-12 px-4 py-1 border border-blue-500 rounded-md hover:bg-blue-500 hover:text-white">Sign In</button>
-    </div>
+  <div class="font-bold ml-4">
+    <a routerLink="adminlogin">
+      Gymx Admin <i class="ri-admin-line font-bold"></i
+    ></a>
+  </div>
+  <div class="flex justify-between items-center">
+    <ul class="flex space-x-11">
+      <li>
+        <a routerLink="products"
+          ><i class="ri-store-line mr-1"></i> All Product</a
+        >
+      </li>
+      <li>
+        <a routerLink="addProduct"
+          ><i class="ri-add-line mr-1"></i> Add/Edit Product</a
+        >
+      </li>
+      <li>
+        <a routerLink="products"><i class="ri-group-line mr-1"></i> Users</a>
+      </li>
+    </ul>
+    <button
+      class="mx-12 px-4 py-1 border border-blue-500 rounded-md hover:bg-blue-500 hover:text-white"
+    >
+      <a routerLink="adminlogin">Sign In</a>
+    </button>
+  </div>
 </nav>

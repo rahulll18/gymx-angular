@@ -21,7 +21,8 @@ export class ProductFormComponent {
     const routeParam = activeRoute.snapshot.paramMap.get('productId');
     if (routeParam != null) {
       let productId = parseInt(routeParam);
-      // this.getProduct(_id);
+      console.log(productId);
+      this.getProd(productId);
     }
     this.productForm = new FormGroup({
       productId: new FormControl(),
@@ -71,9 +72,8 @@ export class ProductFormComponent {
     const obs = this.productcrud.addProduct(this.product);
     obs.subscribe({
       next: (product) => {
-        console.log(product);
         window.alert(
-          `Product with id ${product.productId} added successfully....`
+          `Product added successfully....`
         );
         this.router.navigate(['/products']);
       },
@@ -81,6 +81,21 @@ export class ProductFormComponent {
         console.log(err);
         window.alert('something went wrong while adding...');
       },
+    });
+  }
+
+  getProd(_id:number){
+    const obs=this.productcrud.getProductById(_id);
+    obs.subscribe({
+      next:(prod:any)=>{
+      //  console.log(prod);
+        // this.productForm.setValue(prod); // setValue : strict
+        this.productForm.patchValue(prod[0]); // :not strict
+      },
+      error: (err)=>{
+        console.log(err); 
+        window.alert("something went wrong while searching...")
+      }
     });
   }
 }

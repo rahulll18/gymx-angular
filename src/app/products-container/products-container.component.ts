@@ -1,12 +1,13 @@
-import { Component } from '@angular/core';
+import { Component, OnInit } from '@angular/core';
 import { Product } from '../customclasses/product';
+import { ProductcrudserviceService } from '../customservice/productcrudservice.service';
 
 @Component({
   selector: 'app-products-container',
   templateUrl: './products-container.component.html',
   styleUrl: './products-container.component.css',
 })
-export class ProductsContainerComponent {
+export class ProductsContainerComponent implements OnInit {
   // products: Product[] = [
   // new Product(1, 'Stringer', 'Checks Stringer Ultimate Grey', 'Rs. 399', 'Rs. 900', '60% off'),
   // new Product(2, 'T-Shirt', 'Compression Fullsleeves T-shirt', 'Rs. 379', 'Rs. 749', '49% off'),
@@ -34,5 +35,26 @@ export class ProductsContainerComponent {
   // new Product(24, 'Mass Gainer', 'Advanced Mass Gainer 3kg', 'Rs. 3,499', 'Rs. 5,499', '36% off'),
   // ];
 
-  products:Product[]= []
+  products: Product[] = [];
+  allProducts: Product[] = [];
+
+  constructor(private productcrud: ProductcrudserviceService) {}
+
+  ngOnInit(): void {
+    this.getProducts();
+  }
+
+  getProducts() {
+    const obs = this.productcrud.getAllProducts();
+    obs.subscribe({
+      next: (prod) => {
+        this.products = prod;
+        this.allProducts = prod; 
+      },
+      error: (err) => {
+        console.log(err);
+        window.alert('something went wrong getting products...');
+      },
+    });
+  }
 }

@@ -49,7 +49,7 @@ export class ProductsContainerComponent implements OnInit {
     const obs = this.productcrud.getAllProducts();
     obs.subscribe({
       next: (prod) => {
-        console.log(prod)
+        console.log(prod);
         this.products = prod;
         this.allProducts = prod;
       },

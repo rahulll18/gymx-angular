@@ -4,6 +4,7 @@ import { AdminLoginComponent } from './admin-login/admin-login.component';
 import { ProductsContainerComponent } from './products-container/products-container.component';
 import { ProductFormComponent } from './product-form/product-form.component';
 import { HomeComponent } from './home/home.component';
+import { FileuploadComponent } from './fileupload/fileupload.component';
 
 const routes: Routes = [
   {
@@ -30,6 +31,10 @@ const routes: Routes = [
   {
     path: 'editProduct/:productId',
     component: ProductFormComponent,
+  },
+  {
+    path: 'editpic/:productId',
+    component: FileuploadComponent,
   },
 ];
 

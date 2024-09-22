@@ -1,14 +1,17 @@
 <div
-  class="w-[80%] mx-auto bg-slate-200 m-2 rounded-xl flex justify-around items-center p-2"
+  class="w-[80%] mx-auto bg-slate-300 m-2 rounded-xl flex justify-around items-center p-2"
 >
   <div class="p-2">
     <img
-      src="https://fuaark.com/cdn/shop/files/FuaarkChecksStringerUltimateGrey_1.jpg?v=1716526924&width=580"
+      [src]="productImageSrc"
       width="130"
-      class="h-28 rounded-lg border border-black"
+      class="h-28 rounded-lg"
       alt="{{ product.productHeading }}"
     />
-    <button class="px-2 py-1 ml-4 mt-6 bg-blue-400 rounded-lg text-sm">
+    <button
+      class="px-2 py-1 ml-4 mt-6 bg-blue-400 rounded-lg text-sm"
+      [routerLink]="['/editpic', product.productId]"
+    >
       Edit Picture <i class="ri-image-edit-line"></i>
     </button>
   </div>
@@ -28,6 +31,7 @@
     </button>
     <button
       class="px-3 py-1 m-2 bg-red-600 text-white text-sm mt-4 hover:bg-white hover:text-red-500 rounded-lg"
+      (click)="emitter.emit(product.productId)"
     >
       Delete <i class="ri-delete-bin-line"></i>
     </button>

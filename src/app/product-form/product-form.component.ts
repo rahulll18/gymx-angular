@@ -65,6 +65,7 @@ export class ProductFormComponent {
     if (this.activeRoute.snapshot.routeConfig?.path?.includes('addProduct')) {
       this.addProducts();
     } else {
+      this.updateProd();
     }
   }
 
@@ -73,7 +74,7 @@ export class ProductFormComponent {
     obs.subscribe({
       next: (product) => {
         window.alert(
-          `Product added successfully....`
+          `Product with id ${this.product.productId} added successfully....`
         );
         this.router.navigate(['/products']);
       },
@@ -81,6 +82,21 @@ export class ProductFormComponent {
         console.log(err);
         window.alert('something went wrong while adding...');
       },
+    });
+  }
+
+  updateProd(){
+    const obs=this.productcrud.updateProduct(this.product);
+    obs.subscribe({
+      next:(obj)=>{
+        console.log(obj);
+        window.alert(`Product with id ${this.product.productId} updated successfully....`)
+        this.router.navigate(['/products']);
+      },
+      error: (err)=>{
+        console.log(err); 
+        window.alert("something went wrong while updating...")
+      }
     });
   }
 

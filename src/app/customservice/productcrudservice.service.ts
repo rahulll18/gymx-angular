@@ -23,7 +23,26 @@ export class ProductcrudserviceService {
     return this.http.get<Product>(this.url + '/getProduct/' + _id);
   }
 
-  deleteEmployeeById(_id: number): Observable<Object> {
+  getProductsByName(prodname:string):Observable<Product[]>{
+    return this.http.get<Product[]>(this.url+"/getbyname/"+prodname)
+  }
+
+  updateProduct(product: Product): Observable<Object> {
+    return this.http.put<Object>(
+      this.url + '/updateProduct/' + product.productId,
+      product
+    );
+  }
+
+  deleteProductById(_id: number): Observable<Object> {
     return this.http.delete<Object>(this.url + '/deleteProduct/' + _id);
   }
+
+  uploadProductPicture(_id:number, productImage:any):Observable<Object>{
+    console.log(_id);
+     console.log(productImage);
+     let formData=new FormData();
+     formData.append('productImage',productImage)
+     return this.http.put<Object>(this.url+"/upload/"+_id,formData);
+   }
 }

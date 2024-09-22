@@ -37,6 +37,7 @@ export class ProductsContainerComponent implements OnInit {
 
   products: Product[] = [];
   allProducts: Product[] = [];
+  errorMessage = '';
 
   constructor(private productcrud: ProductcrudserviceService) {}
 
@@ -48,13 +49,53 @@ export class ProductsContainerComponent implements OnInit {
     const obs = this.productcrud.getAllProducts();
     obs.subscribe({
       next: (prod) => {
+        console.log(prod)
         this.products = prod;
-        this.allProducts = prod; 
+        this.allProducts = prod;
       },
       error: (err) => {
         console.log(err);
         window.alert('something went wrong getting products...');
       },
     });
+  }
+
+  deleteProduct(_id: number) {
+    const ans = confirm('Do you really want to delete?');
+    if (ans) {
+      const obs = this.productcrud.deleteProductById(_id);
+      obs.subscribe({
+        next: (obj) => {
+          window.alert('Product deleted successfully....');
+          this.getProducts();
+        },
+        error: (err) => {
+          console.log(err);
+          window.alert('something went wrong deleting employee...');
+        },
+      });
+    }
+  }
+
+  searchProducts(prodname: string) {
+    console.log('search query :' + prodname);
+    if (prodname !== '') {
+      const obs = this.productcrud.getProductsByName(prodname);
+      obs.subscribe({
+        next: (prods) => {
+          if (prods.length > 0) {
+            this.errorMessage = '';
+            this.products = prods;
+          } else this.errorMessage = 'NOT FOUND';
+        },
+        error: (err) => {
+          console.log(err);
+          window.alert('something went wrong searching product...');
+        },
+      });
+    } else {
+      this.errorMessage = '';
+      this.products = this.allProducts;
+    }
   }
 }

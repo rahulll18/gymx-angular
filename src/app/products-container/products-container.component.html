@@ -1,9 +1,23 @@
-<section class="w-3/4 mx-auto mt-4 p-1 shadow-lg shadow-gray-300">
+<section class="w-3/4 mx-auto mt-4 p-1 shadow-lg shadow-gray-400">
   <div class="mx-auto w-52 text-3xl font-serif font-extrabold">
-    All <span class="text-blue-500">Products</span> 
+    All <span class="text-blue-500">Products</span>
   </div>
+  <div class="flex justify-center my-5">
+    <input
+      type="text"
+      title="prodname"
+      (keyup)="searchProducts(nameNode.value)"
+      placeholder="Serach the product"
+      class="border border-black rounded-lg px-3 py-1 w-96 shadow-md shadow-blue-500"
+      #nameNode
+    />
+    <i class="ri-search-line text-2xl ml-2"></i>
+  </div>
+
+  <div class="text-red-500 font-bold w-36 mx-auto">{{ errorMessage }}</div>
   <app-productcard
     *ngFor="let product of products"
     [product]="product"
+    (emitter)="deleteProduct($event)"
   ></app-productcard>
 </section>

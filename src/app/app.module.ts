@@ -13,6 +13,7 @@ import { AdminLoginComponent } from './admin-login/admin-login.component';
 import { HomeComponent } from './home/home.component';
 import { provideHttpClient } from '@angular/common/http';
 import { provideAnimationsAsync } from '@angular/platform-browser/animations/async';
+import { FileuploadComponent } from './fileupload/fileupload.component';
 
 @NgModule({
   declarations: [
@@ -24,6 +25,7 @@ import { provideAnimationsAsync } from '@angular/platform-browser/animations/asy
     ProductFormComponent,
     AdminLoginComponent,
     HomeComponent,
+    FileuploadComponent,
   ],
   imports: [
     BrowserModule,

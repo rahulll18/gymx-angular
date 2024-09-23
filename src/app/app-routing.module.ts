@@ -5,6 +5,7 @@ import { ProductsContainerComponent } from './products-container/products-contai
 import { ProductFormComponent } from './product-form/product-form.component';
 import { HomeComponent } from './home/home.component';
 import { FileuploadComponent } from './fileupload/fileupload.component';
+import { authGuard } from './guards/authGard';
 
 const routes: Routes = [
   {
@@ -23,14 +24,17 @@ const routes: Routes = [
   {
     path: 'products',
     component: ProductsContainerComponent,
+    canActivate: [authGuard],
   },
   {
     path: 'addProduct',
     component: ProductFormComponent,
+    canActivate: [authGuard],
   },
   {
     path: 'editProduct/:productId',
     component: ProductFormComponent,
+    canActivate: [authGuard],
   },
   {
     path: 'editpic/:productId',

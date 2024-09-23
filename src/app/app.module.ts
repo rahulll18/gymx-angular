@@ -18,6 +18,8 @@ import { MatIconModule } from '@angular/material/icon';
 import { MatButtonModule } from '@angular/material/button';
 import { MatListModule } from '@angular/material/list';
 import { MatTooltipModule } from '@angular/material/tooltip';
+import { StoreModule } from '@ngrx/store';
+import { userReducer } from './ngrx/user.reducres';
 
 @NgModule({
   declarations: [
@@ -39,7 +41,8 @@ import { MatTooltipModule } from '@angular/material/tooltip';
     MatButtonModule,
     MatIconModule,
     MatListModule,
-    MatTooltipModule
+    MatTooltipModule,
+    StoreModule.forRoot({user:userReducer})
   ],
   providers: [provideHttpClient(), provideAnimationsAsync()],
   bootstrap: [AppComponent],

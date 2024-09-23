@@ -14,14 +14,25 @@
           ><i class="ri-add-line mr-1"></i> Add/Edit Product</a
         >
       </li>
-      <li>
-        <a routerLink="products"><i class="ri-group-line mr-1"></i> Users</a>
-      </li>
     </ul>
     <button
-      class="mx-12 px-4 py-1 border border-blue-500 rounded-md hover:bg-blue-500 hover:text-white"
+      class="ml-9 px-4 py-1 border border-blue-500 rounded-md hover:bg-blue-500 hover:text-white"
+      *ngIf="(username | async) == ''"
     >
       <a routerLink="adminlogin">Sign In</a>
+    </button>
+    <div class="font-semibold ml-10 text-blue-400">
+      <span class="text-black" *ngIf="(username | async) != ''">Hello </span
+      >{{ username | async }}
+    </div>
+    <button
+      class="ml-12 px-4 py-1 border border-blue-500 rounded-md hover:bg-blue-500 hover:text-white"
+      *ngIf="(username | async) != ''"
+      (click)="logout()"
+    >
+      <a routerLink="adminlogin"
+        >Sign Out <i class="ri-logout-box-r-line ml-2"></i
+      ></a>
     </button>
   </div>
 </nav>

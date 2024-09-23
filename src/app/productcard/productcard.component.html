@@ -9,10 +9,11 @@
       alt="{{ product.productHeading }}"
     />
     <button
-      class="px-2 py-1 ml-4 mt-6 bg-blue-400 rounded-lg text-sm"
+      class="flex items-center px-3 py-1 ml-2 mt-6 bg-blue-400 rounded-lg text-sm"
       [routerLink]="['/editpic', product.productId]"
+      matTooltip="Edit product picture"
     >
-      Edit Picture <i class="ri-image-edit-line"></i>
+      Edit Picture <mat-icon>image</mat-icon>
     </button>
   </div>
   <div class="w-[30%] p-2">
@@ -24,16 +25,18 @@
     <div>Strike Price : {{ product.productStrike }}</div>
     <div>Offer Applied : {{ product.productOffer }}</div>
     <button
-      class="px-3 py-1 mr-2 bg-blue-400 text-sm mt-4"
+      class="px-2 py-1 mr-2 bg-blue-400 text-sm mt-4 rounded-lg"
       [routerLink]="['/editProduct', product.productId]"
+      matTooltip="Edit product"
     >
-      Edit <i class="ri-pencil-fill"></i>
+      <mat-icon class="rounded-xl">edit</mat-icon>
     </button>
     <button
-      class="px-3 py-1 m-2 bg-red-600 text-white text-sm mt-4 hover:bg-white hover:text-red-500 rounded-lg"
+      class="px-2 py-1 ml-10 bg-red-600 text-white text-sm mt-4 hover:bg-white hover:text-red-500 rounded-lg"
       (click)="emitter.emit(product.productId)"
+      matTooltip="Delete product"
     >
-      Delete <i class="ri-delete-bin-line"></i>
+      <mat-icon class=" rounded-xl">delete</mat-icon>
     </button>
   </div>
 </div>

@@ -8,8 +8,9 @@
       class="h-28 rounded-lg"
       alt="{{ product.productHeading }}"
     />
+    <div class="w-6 mx-auto"># {{ product.productId }}</div>
     <button
-      class="flex items-center px-3 py-1 ml-2 mt-6 bg-blue-400 rounded-lg text-sm"
+      class="flex items-center px-3 py-1 ml-2 mt-3 bg-blue-400 rounded-lg text-sm"
       [routerLink]="['/editpic', product.productId]"
       matTooltip="Edit product picture"
     >
@@ -36,7 +37,7 @@
       (click)="emitter.emit(product.productId)"
       matTooltip="Delete product"
     >
-      <mat-icon class=" rounded-xl">delete</mat-icon>
+      <mat-icon class="rounded-xl">delete</mat-icon>
     </button>
   </div>
 </div>

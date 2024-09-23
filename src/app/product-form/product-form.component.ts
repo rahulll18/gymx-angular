@@ -85,33 +85,35 @@ export class ProductFormComponent {
     });
   }
 
-  updateProd(){
-    const obs=this.productcrud.updateProduct(this.product);
+  updateProd() {
+    const obs = this.productcrud.updateProduct(this.product);
     obs.subscribe({
-      next:(obj)=>{
+      next: (obj) => {
         console.log(obj);
-        window.alert(`Product with id ${this.product.productId} updated successfully....`)
+        window.alert(
+          `Product with id ${this.product.productId} updated successfully....`
+        );
         this.router.navigate(['/products']);
       },
-      error: (err)=>{
-        console.log(err); 
-        window.alert("something went wrong while updating...")
-      }
+      error: (err) => {
+        console.log(err);
+        window.alert('something went wrong while updating...');
+      },
     });
   }
 
-  getProd(_id:number){
-    const obs=this.productcrud.getProductById(_id);
+  getProd(_id: number) {
+    const obs = this.productcrud.getProductById(_id);
     obs.subscribe({
-      next:(prod:any)=>{
-      //  console.log(prod);
+      next: (prod: any) => {
+        //  console.log(prod);
         // this.productForm.setValue(prod); // setValue : strict
         this.productForm.patchValue(prod[0]); // :not strict
       },
-      error: (err)=>{
-        console.log(err); 
-        window.alert("something went wrong while searching...")
-      }
+      error: (err) => {
+        console.log(err);
+        window.alert('something went wrong while searching...');
+      },
     });
   }
 }

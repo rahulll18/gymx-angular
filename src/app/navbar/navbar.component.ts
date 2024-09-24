@@ -3,7 +3,7 @@ import { UseraccountService } from '../customservice/useraccount.service';
 import { CookieService } from 'ngx-cookie-service';
 import { Store } from '@ngrx/store';
 import { Observable } from 'rxjs';
-import { resetUser } from '../ngrx/user.actions';
+import { resetUser, setUser } from '../ngrx/user.actions';
 import { Router } from '@angular/router';
 
 @Component({
@@ -21,6 +21,7 @@ export class NavbarComponent {
     private router: Router,
     private store: Store<{ user: string }>
   ) {
+    store.dispatch(setUser(cookie.get('user')));
     this.username = store.select('user');
   }
 

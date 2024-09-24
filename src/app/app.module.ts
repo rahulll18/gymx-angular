@@ -42,7 +42,7 @@ import { userReducer } from './ngrx/user.reducres';
     MatIconModule,
     MatListModule,
     MatTooltipModule,
-    StoreModule.forRoot({user:userReducer})
+    StoreModule.forRoot({ user: userReducer }),
   ],
   providers: [provideHttpClient(), provideAnimationsAsync()],
   bootstrap: [AppComponent],

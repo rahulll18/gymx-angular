@@ -35,7 +35,8 @@ export class AdminLoginComponent {
       window.alert('logged in successfully....');
       this.cookie.set('user', this.admin.username, 1);
       this.store.dispatch(setUser(this.admin.username));
-      this.router.navigate(['products']);
+      this.router.navigate(['/products']);  // Incorrect
+
     } else this.errorMessage = 'Incorrect username or password';
   }
 }

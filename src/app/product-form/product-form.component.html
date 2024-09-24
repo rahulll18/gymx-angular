@@ -16,6 +16,12 @@
           formControlName="productId"
           placeholder="Enter Product ID"
         />
+        <div
+          *ngIf="productId?.touched && productId?.hasError('required')"
+          class="text-red-500 font-bold"
+        >
+          Product ID is required.
+        </div>
       </div>
 
       <!-- Product Heading -->
@@ -30,6 +36,26 @@
           formControlName="productHeading"
           placeholder="Enter Product Heading"
         />
+        <div
+          *ngIf="
+            productHeading?.touched && productHeading?.hasError('required')
+          "
+          class="text-red-500 font-bold"
+        >
+          Product Heading is required.
+        </div>
+        <div
+          *ngIf="productHeading?.hasError('minlength')"
+          class="text-red-500 font-bold"
+        >
+          Product Heading must be at least 2 characters long.
+        </div>
+        <div
+          *ngIf="productHeading?.hasError('maxlength')"
+          class="text-red-500 font-bold"
+        >
+          Product Heading must be less than 100 characters.
+        </div>
       </div>
 
       <!-- Product Description -->
@@ -46,6 +72,21 @@
           class="w-full px-3 py-2 border border-blue-300 rounded-lg focus:outline-none focus:ring focus:ring-blue-200"
           placeholder="Enter Product Description"
         ></textarea>
+        <div
+          *ngIf="
+            productDescription?.touched &&
+            productDescription?.hasError('required')
+          "
+          class="text-red-500 font-bold"
+        >
+          Product Description is required.
+        </div>
+        <div
+          *ngIf="productDescription?.hasError('minlength')"
+          class="text-red-500 font-bold"
+        >
+          Product Description must be at least 5 characters long.
+        </div>
       </div>
 
       <!-- Product Price -->
@@ -60,6 +101,12 @@
           class="w-full px-3 py-2 border border-blue-300 rounded-lg focus:outline-none focus:ring focus:ring-blue-200"
           placeholder="Enter Product Price"
         />
+        <div
+          *ngIf="productPrice?.touched && productPrice?.hasError('required')"
+          class="text-red-500 font-bold"
+        >
+          Product Price is required.
+        </div>
       </div>
 
       <!-- Product Strike -->
@@ -74,6 +121,12 @@
           class="w-full px-3 py-2 border border-blue-300 rounded-lg focus:outline-none focus:ring focus:ring-blue-200"
           placeholder="Enter Product Strike Price"
         />
+        <div
+          *ngIf="productStrike?.touched && productStrike?.hasError('required')"
+          class="text-red-500 font-bold"
+        >
+          Product Strike Price is required
+        </div>
       </div>
 
       <!-- Product Offer -->
@@ -88,6 +141,12 @@
           class="w-full px-3 py-2 border border-blue-300 rounded-lg focus:outline-none focus:ring focus:ring-blue-200"
           placeholder="Enter Product Offer"
         />
+        <div
+          *ngIf="productOffer?.touched && productOffer?.hasError('required')"
+          class="text-red-500 font-bold"
+        >
+          Product Offer is required
+        </div>
       </div>
 
       <!-- Submit Button -->
@@ -102,7 +161,7 @@
         </button>
         <button
           mat-flat-button
-          type="submit"
+          type="reset"
           class="bg-blue-500 text-white font-bold py-2 px-4 rounded-lg hover:bg-blue-600 focus:outline-none focus:ring focus:ring-blue-200"
         >
           Reset

@@ -1,5 +1,5 @@
 import { Component } from '@angular/core';
-import { FormControl, FormGroup } from '@angular/forms';
+import { FormControl, FormGroup, Validators } from '@angular/forms';
 import { Product } from '../customclasses/product';
 import { ActivatedRoute, Router } from '@angular/router';
 import { ProductcrudserviceService } from '../customservice/productcrudservice.service';
@@ -25,12 +25,19 @@ export class ProductFormComponent {
       this.getProd(productId);
     }
     this.productForm = new FormGroup({
-      productId: new FormControl(),
-      productHeading: new FormControl(),
-      productDescription: new FormControl(),
-      productPrice: new FormControl(),
-      productStrike: new FormControl(),
-      productOffer: new FormControl(),
+      productId: new FormControl('', Validators.required),
+      productHeading: new FormControl('', [
+        Validators.required,
+        Validators.minLength(2),
+        Validators.maxLength(100),
+      ]),
+      productDescription: new FormControl('', [
+        Validators.required,
+        Validators.minLength(5),
+      ]),
+      productPrice: new FormControl('', [Validators.required]),
+      productStrike: new FormControl('', Validators.required), // Optional, numeric only
+      productOffer: new FormControl('', Validators.required), // Optional, numeric only
     });
   }
 
